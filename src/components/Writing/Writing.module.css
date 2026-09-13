@@ -1,0 +1,142 @@
+.section {
+  margin-bottom: 6rem;
+  scroll-margin-top: 6rem;
+}
+
+.stickyHeader {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  margin-left: -1.5rem;
+  margin-right: -1.5rem;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1rem;
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(8px);
+}
+
+.headerText {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text);
+}
+
+@media (min-width: 1025px) {
+  .stickyHeader {
+    clip: rect(0, 0, 0, 0);
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+/* List with group-hover dimming */
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.list:hover .item {
+  opacity: 0.5;
+}
+
+.list:hover .item:hover {
+  opacity: 1 !important;
+}
+
+.item {
+  transition: opacity 0.3s;
+}
+
+/* Card */
+.card {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.5rem;
+  padding: 1.25rem 1.5rem;
+  margin-left: -1.5rem;
+  margin-right: -1.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.2s;
+}
+
+@media (min-width: 640px) {
+  .card {
+    grid-template-columns: 140px 1fr;
+    gap: 1rem;
+    align-items: baseline;
+  }
+}
+
+.cardBg {
+  position: absolute;
+  inset: -0.75rem -1.5rem;
+  border-radius: 0.5rem;
+  transition: all 0.2s;
+  z-index: -1;
+  display: none;
+}
+
+@media (min-width: 1025px) {
+  .cardBg {
+    display: block;
+  }
+
+  .card:hover .cardBg {
+    background: var(--bg-card);
+    box-shadow: inset 0 1px 0 0 var(--border);
+    filter: drop-shadow(0 10px 8px rgba(0, 0, 0, 0.04));
+  }
+}
+
+.date {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  white-space: nowrap;
+}
+
+.details {
+  display: flex;
+  align-items: baseline;
+}
+
+.title {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text);
+  line-height: 1.4;
+  display: inline-flex;
+  align-items: baseline;
+}
+
+.card:hover .title {
+  color: var(--accent);
+}
+
+.arrowIcon {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+  margin-left: 0.25rem;
+  transition: transform 0.2s;
+  vertical-align: middle;
+  display: inline-block;
+  transform: translateY(1px);
+}
+
+.card:hover .arrowIcon {
+  transform: translate(2px, -2px);
+}

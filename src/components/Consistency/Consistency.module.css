@@ -1,0 +1,115 @@
+.consistencySection {
+  padding: 100px 0;
+}
+
+.streakCard {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 40px;
+  backdrop-filter: blur(10px);
+}
+
+.streakNums {
+  display: flex;
+  gap: 56px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+
+.statItem {
+  text-align: left;
+}
+
+.streakNum {
+  font-size: 3rem;
+  font-weight: 700;
+  font-family: 'Space Mono', monospace;
+  line-height: 1;
+}
+
+.purple {
+  background: linear-gradient(135deg, var(--purple), var(--purple-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.cyan {
+  background: linear-gradient(135deg, var(--cyan), var(--cyan-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.orange {
+  background: linear-gradient(135deg, var(--orange), var(--orange-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.streakLabel {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-top: 6px;
+}
+
+.gridCaption {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+  font-family: 'Space Mono', monospace;
+}
+
+.contribGrid {
+  display: grid;
+  grid-template-columns: repeat(52, 1fr);
+  gap: 4px;
+}
+
+.contribCell {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.05);
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.contribCell:hover {
+  transform: scale(2);
+  z-index: 2;
+  position: relative;
+  box-shadow: 0 0 8px rgba(139, 92, 246, 0.6);
+}
+
+.level1 {
+  background: rgba(139, 92, 246, 0.25);
+}
+
+.level2 {
+  background: rgba(139, 92, 246, 0.5);
+}
+
+.level3 {
+  background: rgba(139, 92, 246, 0.75);
+}
+
+.level4 {
+  background: var(--purple);
+  box-shadow: 0 0 6px rgba(139, 92, 246, 0.6);
+}
+
+@media (max-width: 768px) {
+  .streakNums {
+    gap: 24px;
+  }
+
+  .streakCard {
+    padding: 24px;
+  }
+
+  .contribGrid {
+    grid-template-columns: repeat(26, 1fr);
+  }
+}

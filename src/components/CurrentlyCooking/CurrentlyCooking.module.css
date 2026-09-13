@@ -1,0 +1,176 @@
+.currentSection {
+  padding: 100px 0;
+}
+
+.currentCard {
+  background: var(--card);
+  border: 1px solid rgba(249, 115, 22, 0.3);
+  border-radius: 24px;
+  padding: 48px;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+}
+
+.currentCard::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(249, 115, 22, 0.12), transparent 70%);
+  pointer-events: none;
+}
+
+.currentBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  background: rgba(249, 115, 22, 0.1);
+  border: 1px solid rgba(249, 115, 22, 0.3);
+  border-radius: 20px;
+  font-size: 0.75rem;
+  color: var(--orange);
+  font-family: 'Space Mono', monospace;
+  margin-bottom: 24px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--orange);
+  animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.2; }
+}
+
+.currentTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.currentDesc {
+  color: var(--text-muted);
+  max-width: 650px;
+  margin-bottom: 36px;
+  line-height: 1.7;
+}
+
+.progressContainer {
+  margin-bottom: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.progressSection {
+  display: flex;
+  flex-direction: column;
+}
+
+.progressLabel {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 0.85rem;
+}
+
+.progressLabel span:first-child {
+  color: var(--text-muted);
+}
+
+.progressLabel span:last-child {
+  color: var(--orange);
+  font-family: 'Space Mono', monospace;
+  font-weight: 600;
+}
+
+.progressBar {
+  height: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  border-radius: 4px;
+  background: linear-gradient(90deg, var(--orange), var(--pink));
+  position: relative;
+}
+
+.progressFill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.currentFeatures {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.featureChip {
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: transform 0.15s;
+}
+
+.featureChip:hover {
+  transform: translateY(-2px);
+}
+
+.featureSymbol {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.chipDone {
+  border-color: rgba(16, 185, 129, 0.3);
+  color: var(--green);
+  background: rgba(16, 185, 129, 0.05);
+}
+
+.chipWip {
+  border-color: rgba(249, 115, 22, 0.3);
+  color: var(--orange);
+  background: rgba(249, 115, 22, 0.05);
+}
+
+.chipTodo {
+  border-color: rgba(148, 163, 184, 0.2);
+  color: var(--text-muted);
+}
+
+@media (max-width: 768px) {
+  .currentCard {
+    padding: 24px;
+  }
+}

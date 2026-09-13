@@ -1,0 +1,157 @@
+.aboutSection {
+  padding: 120px 0;
+  position: relative;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.sectionHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 64px;
+}
+
+.sectionTag {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  color: #38bdf8;
+  text-transform: uppercase;
+}
+
+.sectionTitle {
+  font-family: 'Space Grotesk', -apple-system, sans-serif;
+  font-size: clamp(2rem, 3.8vw, 3.2rem);
+  font-weight: 800;
+  line-height: 1.18;
+  color: #ffffff;
+  letter-spacing: -0.03em;
+}
+
+.gradientTitle {
+  background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 50%, #38bdf8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* 2-Column Architectural Grid */
+.aboutGrid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 64px;
+  align-items: start;
+}
+
+/* Left Column */
+.statementCol {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.leadText {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(1.2rem, 2vw, 1.45rem);
+  font-weight: 600;
+  line-height: 1.6;
+  color: #f1f5f9;
+  letter-spacing: -0.015em;
+}
+
+.bodyText {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #94a3b8;
+}
+
+/* Benchmark Telemetry Box */
+.benchmarkBox {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 16px;
+  padding: 22px;
+  background: rgba(8, 12, 20, 0.6);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+}
+
+.benchmarkItem {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.benchmarkLabel {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+  color: #64748b;
+  text-transform: uppercase;
+}
+
+.benchmarkValue {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #38bdf8;
+  letter-spacing: 0.05em;
+}
+
+/* Right Column: Pillars */
+.pillarsCol {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.pillarCard {
+  padding: 24px;
+  background: rgba(8, 12, 20, 0.65);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  transition: border-color 0.25s ease, transform 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pillarCard:hover {
+  border-color: rgba(56, 189, 248, 0.35);
+  transform: translateX(4px);
+}
+
+.pillarIndex {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  color: #38bdf8;
+  text-transform: uppercase;
+}
+
+.pillarTitle {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+}
+
+.pillarDesc {
+  font-size: 0.88rem;
+  line-height: 1.65;
+  color: #94a3b8;
+}
+
+@media (max-width: 960px) {
+  .aboutGrid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .benchmarkBox {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}

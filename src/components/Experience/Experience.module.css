@@ -1,0 +1,152 @@
+.experienceSection {
+  padding: 120px 0;
+  position: relative;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.sectionHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 64px;
+}
+
+.sectionTag {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  color: #38bdf8;
+  text-transform: uppercase;
+}
+
+.sectionTitle {
+  font-family: 'Space Grotesk', -apple-system, sans-serif;
+  font-size: clamp(2rem, 3.8vw, 3.2rem);
+  font-weight: 800;
+  line-height: 1.18;
+  color: #ffffff;
+  letter-spacing: -0.03em;
+}
+
+.gradientTitle {
+  background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 50%, #38bdf8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.sectionSub {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: #94a3b8;
+  max-width: 620px;
+}
+
+/* Ledger List */
+.ledgerList {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  background: rgba(8, 12, 20, 0.65);
+  backdrop-filter: blur(20px);
+  overflow: hidden;
+}
+
+.ledgerItem {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 40px;
+  padding: 36px 40px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  transition: background 0.25s ease;
+}
+
+.ledgerItem:last-child {
+  border-bottom: none;
+}
+
+.ledgerItem:hover {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+/* Left Column */
+.metaCol {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.periodBadge {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #38bdf8;
+}
+
+.highlightTag {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  color: #94a3b8;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 4px 10px;
+  border-radius: 4px;
+  width: fit-content;
+}
+
+/* Right Column */
+.contentCol {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.roleTitle {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+}
+
+.companyName {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  color: #cbd5e1;
+}
+
+.roleDesc {
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: #94a3b8;
+  margin-top: 4px;
+}
+
+.tagRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.techTag {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  color: #64748b;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 3px 8px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+@media (max-width: 860px) {
+  .ledgerItem {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 24px;
+  }
+}

@@ -1,0 +1,13 @@
+.spotlight {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  transition: background 0.3s;
+}
+
+@media (max-width: 1024px) {
+  .spotlight {
+    display: none;
+  }
+}

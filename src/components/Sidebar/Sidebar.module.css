@@ -1,0 +1,118 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+
+.name a {
+  font-size: 2.8rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--text);
+  line-height: 1;
+  transition: color 0.2s;
+}
+
+.name a:hover {
+  color: var(--accent);
+}
+
+.title {
+  margin-top: 0.75rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: -0.01em;
+}
+
+.bio {
+  margin-top: 1rem;
+  max-width: 320px;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+/* Navigation */
+.nav {
+  margin-top: 4rem;
+}
+
+.nav ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 0;
+  gap: 1rem;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.navIndicator {
+  display: block;
+  height: 1px;
+  width: 2rem;
+  background: var(--text-faint);
+  transition: width 0.25s, background 0.25s;
+}
+
+.navText {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  transition: color 0.25s;
+}
+
+.navLink:hover .navIndicator,
+.navLink.active .navIndicator {
+  width: 4rem;
+  background: var(--text);
+}
+
+.navLink:hover .navText,
+.navLink.active .navText {
+  color: var(--text);
+}
+
+/* Socials */
+.socials {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+
+.socials a {
+  display: block;
+  color: var(--text-faint);
+  transition: color 0.2s;
+}
+
+.socials a:hover {
+  color: var(--text);
+}
+
+/* Mobile: sidebar becomes top header */
+@media (max-width: 1024px) {
+  .sidebar {
+    padding-top: 3rem;
+    padding-bottom: 2rem;
+  }
+
+  .nav {
+    display: none;
+  }
+
+  .name a {
+    font-size: 2.2rem;
+  }
+}

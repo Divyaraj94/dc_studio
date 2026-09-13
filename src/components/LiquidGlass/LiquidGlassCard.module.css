@@ -1,0 +1,71 @@
+.glassCard {
+  position: relative;
+  border-radius: 20px;
+  background: rgba(15, 15, 30, 0.65);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow:
+    0 20px 40px -15px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 0 20px rgba(139, 92, 246, 0.05);
+  transition: transform 0.25s cubic-bezier(0.2, 0, 0.2, 1), border-color 0.25s, box-shadow 0.25s;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.pill {
+  border-radius: 9999px;
+}
+
+.glassCard:hover {
+  border-color: rgba(139, 92, 246, 0.45);
+  box-shadow:
+    0 25px 50px -10px rgba(139, 92, 246, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    inset 0 0 25px rgba(6, 182, 212, 0.15);
+}
+
+/* Dynamic internal refraction flare tracking cursor */
+.refractionFlare {
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(167, 139, 250, 0.25) 0%,
+    rgba(6, 182, 212, 0.15) 35%,
+    transparent 70%
+  );
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+  mix-blend-mode: screen;
+}
+
+/* Top specular edge reflection */
+.specularShine {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.4) 30%,
+    rgba(139, 92, 246, 0.8) 50%,
+    rgba(6, 182, 212, 0.8) 70%,
+    transparent 100%
+  );
+  pointer-events: none;
+  z-index: 2;
+}
+
+.content {
+  position: relative;
+  z-index: 3;
+}

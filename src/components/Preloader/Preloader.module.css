@@ -1,0 +1,299 @@
+/* Root Wrapper */
+.preloaderRoot {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  overflow: hidden;
+  user-select: none;
+  font-family: 'Space Mono', monospace;
+  pointer-events: auto;
+}
+
+/* Split Curtains (Awwwards Signature Shutter Reveal) */
+.curtain {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background: #030508;
+  z-index: 1;
+  transition: transform 0.85s cubic-bezier(0.85, 0, 0.15, 1);
+}
+
+.curtainTop {
+  top: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.curtainBottom {
+  top: 50%;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Exiting state: Curtains slide up and down */
+.exiting {
+  pointer-events: none !important;
+}
+
+.exiting .curtainTop {
+  transform: translateY(-100%);
+}
+
+.exiting .curtainBottom {
+  transform: translateY(100%);
+}
+
+.exiting .contentContainer {
+  opacity: 0;
+  transform: scale(0.97);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* Procedural Film Grain Overlay */
+.grainOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: radial-gradient(#ffffff 1px, transparent 1px);
+  background-size: 3px 3px;
+}
+
+/* Content Container */
+.contentContainer {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 32px 48px;
+  box-sizing: border-box;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Top Architectural Header */
+.topBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.brandBadge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brandDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #38bdf8;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.8);
+}
+
+.brandTitle {
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  color: #f1f5f9;
+  font-weight: 700;
+}
+
+.editionTag {
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  color: #64748b;
+  text-transform: uppercase;
+}
+
+.skipBtn {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #94a3b8;
+  font-family: inherit;
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  padding: 6px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.skipBtn:hover {
+  background: #ffffff;
+  color: #030508;
+  border-color: #ffffff;
+  transform: translateY(-1px);
+}
+
+/* Center Stage */
+.centerStage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 18px;
+  max-width: 640px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Huge Counter Number */
+.counterWrapper {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 8px;
+  line-height: 0.9;
+}
+
+.counterNumber {
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
+  font-size: clamp(5.5rem, 14vw, 11rem);
+  font-weight: 900;
+  color: #ffffff;
+  letter-spacing: -0.05em;
+  text-shadow: 0 0 40px rgba(255, 255, 255, 0.1);
+}
+
+.counterPercent {
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-weight: 700;
+  color: #38bdf8;
+  letter-spacing: -0.02em;
+}
+
+/* Masked Kinetic Text Carousel */
+.disciplineMask {
+  height: 28px;
+  overflow: hidden;
+  position: relative;
+}
+
+.disciplineSlider {
+  transition: transform 0.45s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.disciplineItem {
+  height: 28px;
+  line-height: 28px;
+  font-size: 0.85rem;
+  letter-spacing: 0.28em;
+  color: #94a3b8;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+/* Hairline Progress Tracker */
+.trackerContainer {
+  width: 100%;
+  max-width: 440px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.trackerTrack {
+  position: relative;
+  width: 100%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.trackerFill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, #38bdf8);
+  transition: width 0.08s linear;
+}
+
+.trackerNeedle {
+  position: absolute;
+  right: -2px;
+  top: -2px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 0 8px #38bdf8;
+}
+
+.trackerMeta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  color: #475569;
+  text-transform: uppercase;
+}
+
+/* Bottom Telemetry Footer */
+.bottomBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  color: #64748b;
+  text-transform: uppercase;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 20px;
+}
+
+.telemetryItem {
+  color: #64748b;
+}
+
+.statusIndicator {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #cbd5e1;
+}
+
+.statusPulse {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #38bdf8;
+  animation: pulse 1.8s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(0.9);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .contentContainer {
+    padding: 24px 20px;
+  }
+  .editionTag {
+    display: none;
+  }
+  .bottomBar {
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+    text-align: center;
+  }
+  .telemetryItem:first-child {
+    display: none;
+  }
+}
