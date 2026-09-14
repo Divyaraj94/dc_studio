@@ -9,6 +9,7 @@ import Experience from './components/Experience/Experience';
 import Skills from './components/Skills/Skills';
 import Contact from './components/Contact/Contact';
 import Footer from './components/Footer/Footer';
+import Bot from './components/Bot/Bot';
 
 export default function App() {
   const [loading, setLoading] = useState(true);
@@ -83,6 +84,9 @@ export default function App() {
 
       {/* Studio Colophon */}
       <Footer />
+
+      {/* Liquid Glass Concierge Bot */}
+      <Bot />
     </div>
   );
 }
