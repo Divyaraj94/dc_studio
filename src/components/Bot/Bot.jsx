@@ -9,6 +9,31 @@ export default function Bot() {
   const [inputText, setInputText] = useState('');
   const [isTyping, setIsTyping] = useState(false);
   const chatFeedRef = useRef(null);
+  const containerRef = useRef(null);
+
+  // Click outside and Escape key dismissal
+  useEffect(() => {
+    const handlePointerDown = (e) => {
+      if (containerRef.current && !containerRef.current.contains(e.target)) {
+        setIsOpen(false);
+      }
+    };
+
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        setIsOpen(false);
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener('pointerdown', handlePointerDown);
+      document.addEventListener('keydown', handleKeyDown);
+    }
+    return () => {
+      document.removeEventListener('pointerdown', handlePointerDown);
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isOpen]);
 
   // Auto-scroll chat feed to bottom when messages or typing changes
   useEffect(() => {
@@ -139,7 +164,7 @@ export default function Bot() {
   ];
 
   return (
-    <div className={styles.botContainer}>
+    <div className={styles.botContainer} ref={containerRef}>
       <AnimatePresence>
         {isOpen && (
           <motion.div
