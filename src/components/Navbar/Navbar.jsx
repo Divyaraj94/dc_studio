@@ -42,6 +42,18 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Lock body scroll when mobile drawer is open
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [menuOpen]);
+
   const toggleMenu = () => setMenuOpen((prev) => !prev);
   const closeMenu = () => setMenuOpen(false);
 
@@ -61,76 +73,94 @@ export default function Navbar() {
   };
 
   return (
-    <header className={`${styles.header} ${scrolled ? styles.scrolled : ''}`} id="main-nav">
-      {/* Real-time Viewport Scroll Progress Bar */}
-      <div
-        className={styles.scrollProgressBar}
-        style={{ width: `${scrollProgress}%` }}
+    <>
+      <header className={`${styles.header} ${scrolled ? styles.scrolled : ''}`} id="main-nav">
+        {/* Real-time Viewport Scroll Progress Bar */}
+        <div
+          className={styles.scrollProgressBar}
+          style={{ width: `${scrollProgress}%` }}
+          aria-hidden="true"
+        />
+
+        <div className={styles.navInner}>
+          {/* Brand Studio Mark */}
+          <a
+            href="#hero"
+            className={styles.brand}
+            onClick={(e) => handleNavClick(e, 'hero')}
+          >
+            <span className={styles.statusDot} />
+            <span className={styles.brandText}>DC // STUDIO</span>
+          </a>
+
+          {/* Mobile Menu Toggle */}
+          <button
+            className={`${styles.menuToggle} ${menuOpen ? styles.menuActive : ''}`}
+            onClick={toggleMenu}
+            aria-label="Toggle navigation menu"
+            aria-expanded={menuOpen}
+          >
+            <span />
+            <span />
+          </button>
+
+          {/* Navigation Menu with Scroll Spy */}
+          <nav className={`${styles.navMenu} ${menuOpen ? styles.navOpen : ''}`}>
+            <div className={styles.mobileNavHeader}>
+              <span className={styles.mobileNavLabel}>NAVIGATION</span>
+            </div>
+
+            <a
+              href="#projects"
+              className={`${styles.navLink} ${activeSection === 'projects' ? styles.activeLink : ''}`}
+              onClick={(e) => handleNavClick(e, 'projects')}
+            >
+              <span className={styles.navNum}>01</span>
+              Selected Works
+            </a>
+            <a
+              href="#about"
+              className={`${styles.navLink} ${activeSection === 'about' ? styles.activeLink : ''}`}
+              onClick={(e) => handleNavClick(e, 'about')}
+            >
+              <span className={styles.navNum}>02</span>
+              Philosophy
+            </a>
+            <a
+              href="#experience"
+              className={`${styles.navLink} ${activeSection === 'experience' ? styles.activeLink : ''}`}
+              onClick={(e) => handleNavClick(e, 'experience')}
+            >
+              <span className={styles.navNum}>03</span>
+              Career
+            </a>
+            <a
+              href="#skills"
+              className={`${styles.navLink} ${activeSection === 'skills' ? styles.activeLink : ''}`}
+              onClick={(e) => handleNavClick(e, 'skills')}
+            >
+              <span className={styles.navNum}>04</span>
+              Capabilities
+            </a>
+
+            <div className={styles.navCtaWrap}>
+              <LiquidGlassButton
+                href="#contact"
+                onClick={(e) => handleNavClick(e, 'contact')}
+              >
+                Initiate Contact
+              </LiquidGlassButton>
+            </div>
+          </nav>
+        </div>
+      </header>
+
+      {/* Mobile Drawer Backdrop */}
+      <div 
+        className={`${styles.backdrop} ${menuOpen ? styles.backdropActive : ''}`}
+        onClick={closeMenu}
         aria-hidden="true"
       />
-
-      <div className={styles.navInner}>
-        {/* Brand Studio Mark */}
-        <a
-          href="#hero"
-          className={styles.brand}
-          onClick={(e) => handleNavClick(e, 'hero')}
-        >
-          <span className={styles.statusDot} />
-          <span className={styles.brandText}>DC // STUDIO</span>
-        </a>
-
-        {/* Mobile Menu Toggle */}
-        <button
-          className={`${styles.menuToggle} ${menuOpen ? styles.menuActive : ''}`}
-          onClick={toggleMenu}
-          aria-label="Toggle navigation menu"
-        >
-          <span />
-          <span />
-        </button>
-
-        {/* Navigation Menu with Scroll Spy */}
-        <nav className={`${styles.navMenu} ${menuOpen ? styles.navOpen : ''}`}>
-          <a
-            href="#projects"
-            className={`${styles.navLink} ${activeSection === 'projects' ? styles.activeLink : ''}`}
-            onClick={(e) => handleNavClick(e, 'projects')}
-          >
-            Selected Works
-          </a>
-          <a
-            href="#about"
-            className={`${styles.navLink} ${activeSection === 'about' ? styles.activeLink : ''}`}
-            onClick={(e) => handleNavClick(e, 'about')}
-          >
-            Philosophy
-          </a>
-          <a
-            href="#experience"
-            className={`${styles.navLink} ${activeSection === 'experience' ? styles.activeLink : ''}`}
-            onClick={(e) => handleNavClick(e, 'experience')}
-          >
-            Career
-          </a>
-          <a
-            href="#skills"
-            className={`${styles.navLink} ${activeSection === 'skills' ? styles.activeLink : ''}`}
-            onClick={(e) => handleNavClick(e, 'skills')}
-          >
-            Capabilities
-          </a>
-
-          <div className={styles.navCtaWrap}>
-            <LiquidGlassButton
-              href="#contact"
-              onClick={(e) => handleNavClick(e, 'contact')}
-            >
-              Initiate Contact
-            </LiquidGlassButton>
-          </div>
-        </nav>
-      </div>
-    </header>
+    </>
   );
 }
